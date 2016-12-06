@@ -15,7 +15,7 @@ public class AppConstant {
     public static String movie_id_intent = "id";
     public static String movie_json_intent = "movie_json";
     public static String movie_backdrop_link = "https://image.tmdb.org/t/p/w780";
-    public static String movie_api_key = "9351b653885866a95fcef04c4f0c7426";
+    public static String movie_api_key = "your_api_key";
     public static String movie_url_api = "http://api.themoviedb.org/3/movie/";
     public static String movie_url_api_search = "http://api.themoviedb.org/3/search/movie?";
 }

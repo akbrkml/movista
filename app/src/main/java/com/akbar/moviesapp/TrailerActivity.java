@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.akbar.moviesapp.Adapter.AdapterTrailer;
@@ -64,10 +65,10 @@ public class TrailerActivity extends AppCompatActivity {
                 recyclerView.setAdapter(adapterTrailer);
             }
         }, new Response.ErrorListener(){
-
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Toast.makeText(getApplication(), "Error while connecting to the server.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplication(), "Please check your connection.", Toast.LENGTH_SHORT).show();
             }
         });
         requestQueue.add(stringRequest);

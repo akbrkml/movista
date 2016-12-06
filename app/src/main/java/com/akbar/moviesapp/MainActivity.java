@@ -107,13 +107,13 @@ public class MainActivity extends AppCompatActivity {
             setTitle("Now Playing");
         }else if (i == 1){
             categoryFilm = "popular";
-            setTitle("Popular");
+            setTitle("Popular Movies");
         }else if (i == 2){
             categoryFilm = "top_rated";
-            setTitle("Top Rated");
+            setTitle("Top Rated Movies");
         }else if (i == 3){
             categoryFilm = "upcoming";
-            setTitle("Upcoming");
+            setTitle("Coming Soon");
         }
 
         String URLMovie = AppConstant.movie_url_api + categoryFilm + "?api_key=" + AppConstant.movie_api_key;

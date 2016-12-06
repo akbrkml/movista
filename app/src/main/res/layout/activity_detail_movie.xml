@@ -31,18 +31,17 @@
         android:layout_gravity="bottom|end"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         fab:menu_animationDelayPerItem="55"
         fab:menu_backgroundColor="@android:color/transparent"
         fab:menu_buttonSpacing="0dp"
-        fab:menu_colorNormal="#da3c2f"
-        fab:menu_colorPressed="#dc4b3f"
+        fab:menu_colorNormal="@color/colorPrimaryDark"
+        fab:menu_colorPressed="@color/colorPrimary"
         fab:menu_colorRipple="#99d4d4d4"
         fab:menu_icon="@drawable/fab_add"
-        fab:menu_labels_colorNormal="#333"
-        fab:menu_labels_colorPressed="#444"
         fab:menu_labels_colorRipple="#66efecec"
         fab:menu_labels_cornerRadius="3dp"
         fab:menu_labels_ellipsize="none"
@@ -62,19 +61,21 @@
         fab:menu_shadowXOffset="1dp"
         fab:menu_shadowYOffset="4dp"
         fab:menu_showShadow="true"
-        app:menu_fab_size="mini">
+        app:menu_fab_size="normal">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/btnShare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/share"
+            fab:fab_colorNormal="@color/colorPrimaryDark"
             fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/btnTrailer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/colorPrimaryDark"
             android:src="@drawable/camcorder"
             fab:fab_size="mini" />
     </com.github.clans.fab.FloatingActionMenu>

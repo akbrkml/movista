@@ -33,21 +33,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_margin="10dp" />
+            android:layout_margin="10dp"
+            android:text="Developed by"/>
 
         <TextView
             android:id="@+id/text_comwebsite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:layout_marginTop="5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Kamaludin Akbar"/>
     </LinearLayout>
 
 </RelativeLayout>

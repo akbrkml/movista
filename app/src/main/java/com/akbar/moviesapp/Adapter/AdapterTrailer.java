@@ -1,6 +1,8 @@
 package com.akbar.moviesapp.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,11 +29,22 @@ public class AdapterTrailer extends RecyclerView.Adapter<AdapterTrailer.TrailerH
         TextView titleTrailer;
         TextView type;
 
+        String key;
 
         public TrailerHolder(View itemView) {
             super(itemView);
             titleTrailer = (TextView) itemView.findViewById(R.id.txtName);
             type = (TextView) itemView.findViewById(R.id.txtType);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("http://youtube.com/watch?v=" + key));
+                    i.putExtra("judul", titleTrailer.getText().toString());
+                    i.putExtra("type", type.getText().toString());
+                    view.getContext().startActivity(i);
+                }
+            });
         }
     }
 
@@ -51,6 +64,7 @@ public class AdapterTrailer extends RecyclerView.Adapter<AdapterTrailer.TrailerH
     public void onBindViewHolder(TrailerHolder holder, int position) {
         holder.titleTrailer.setText(listTrailer.get(position).name);
         holder.type.setText(listTrailer.get(position).type);
+        holder.key = listTrailer.get(position).key;
     }
 
     @Override

@@ -55,16 +55,6 @@ public class DetailMovie extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // catch data from main activity
-        extras = getIntent().getExtras();
-        title = extras.getString(AppConstant.movie_title_intent);
-        backdrop = extras.getString(AppConstant.movie_backdrop_intent);
-        poster = extras.getString(AppConstant.movie_poster_intent);
-        rating = extras.getString(AppConstant.movie_vote_intent);
-        release_date = extras.getString(AppConstant.movie_year_intent);
-        overview = extras.getString(AppConstant.movie_desc_intent);
-        id_film = extras.getString(AppConstant.movie_id_intent);
-
         // identify interface
         txtTitleMovie = (TextView) findViewById(R.id.movie_title);
         imageBackdrop = (ImageView) findViewById(R.id.img_backdrop);
@@ -89,6 +79,43 @@ public class DetailMovie extends AppCompatActivity {
             }
         });
 
+        buttonShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBody = "#Movista# \n\nMovie title : " + title + "\n\n" +
+                        overview + "\n\n" +
+                        "Rating : \u2605 " + rating + "\n" +
+                        "Release date : " + release_date + "\n";
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Movista");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                startActivity(Intent.createChooser(sharingIntent, "Share in your friends"));
+            }
+        });
+
+        // catch data from main activity
+        extras = getIntent().getExtras();
+//        if (savedInstanceState != null){
+            title = extras.getString(AppConstant.movie_title_intent);
+            backdrop = extras.getString(AppConstant.movie_backdrop_intent);
+            poster = extras.getString(AppConstant.movie_poster_intent);
+            rating = extras.getString(AppConstant.movie_vote_intent);
+            release_date = extras.getString(AppConstant.movie_year_intent);
+            overview = extras.getString(AppConstant.movie_desc_intent);
+            id_film = extras.getString(AppConstant.movie_id_intent);
+//        }
+//        else {
+//            title = (String) savedInstanceState.getSerializable(AppConstant.movie_title_intent);
+//            backdrop = (String) savedInstanceState.getSerializable(AppConstant.movie_backdrop_intent);
+//            poster = (String) savedInstanceState.getSerializable(AppConstant.movie_poster_intent);
+//            rating = (String) savedInstanceState.getSerializable(AppConstant.movie_vote_intent);
+//            release_date = (String) savedInstanceState.getSerializable(AppConstant.movie_year_intent);
+//            overview = (String) savedInstanceState.getSerializable(AppConstant.movie_desc_intent);
+//            id_film = (String) savedInstanceState.getSerializable(AppConstant.movie_id_intent);
+//        }
+
+
         // bind data to interface
         setTitle(title);
         txtTitleMovie.setText(title);
@@ -103,4 +130,31 @@ public class DetailMovie extends AppCompatActivity {
         txtOverview.setText(overview);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
+//    @Override
+//    protected void onSaveInstanceState(Bundle outState) {
+//
+//        outState.putSerializable(AppConstant.movie_title_intent, (String) txtTitleMovie.getText());
+//        outState.putSerializable(AppConstant.movie_backdrop_intent, imageBackdrop.toString());
+//        outState.putSerializable(AppConstant.movie_poster_intent, imagePoster.toString());
+//        outState.putSerializable(AppConstant.movie_vote_intent, (String) txtRating.getText());
+//        outState.putSerializable(AppConstant.movie_year_intent, (String) txtYear.getText());
+//        outState.putSerializable(AppConstant.movie_desc_intent, (String) txtOverview.getText());
+//        outState.putSerializable(AppConstant.movie_id_intent, id_film);
+//
+//        super.onSaveInstanceState(outState);
+//    }
+
+//    @Override
+//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+//
+//        title = savedInstanceState.getString(AppConstant.movie_title_intent);
+//        release_date = savedInstanceState.getString(AppConstant.movie_year_intent);
+//        rating = savedInstanceState.getString(AppConstant.movie_vote_intent);
+//        overview = savedInstanceState.getString(AppConstant.movie_desc_intent);
+//        backdrop = savedInstanceState.getString(AppConstant.movie_backdrop_intent);
+//        poster = savedInstanceState.getString(AppConstant.movie_poster_intent);
+//        id_film = savedInstanceState.getString(AppConstant.movie_id_intent);
+//        super.onRestoreInstanceState(savedInstanceState);
+//    }
 }
